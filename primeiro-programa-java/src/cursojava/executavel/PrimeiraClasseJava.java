@@ -1,29 +1,54 @@
 package cursojava.executavel;
 
-import java.io.ObjectInputStream.GetField;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.excecao.ExcecaoProcessarNota;
+
 
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
+		
+		try {
+			
+			lerArquivo();
+			
+	/*		try {
+				File fil = new File("c://lines.txt");
+				Scanner scanner = new Scanner(fil);
+			} catch (FileNotFoundException e) {
+				throw new ExcecaoProcessarNota("Putz Erro no Processamento"
+						+ "do Arquivo");
+			} */
 
 		String login = JOptionPane.showInputDialog("Entre com o Login");
 		String senha = JOptionPane.showInputDialog("Entre com a Senha");
+		
+		//FuncaoAutenticacao autenticacao = new FuncaoAutenticacao();
+		
+		//PermitirAcesso permitirAcesso = new Secretario(login, senha);
+		
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
+		
+		//if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
-		if (login.equalsIgnoreCase("admin") && 
-			senha.equalsIgnoreCase("admin")) {
+	//	if (login.equalsIgnoreCase("admin") && 
+	//		senha.equalsIgnoreCase("admin")) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
+	//		List<Aluno> alunos = null;
 			/*
 			 * List<Aluno> alunosAprovados = new ArrayList<Aluno>(); List<Aluno>
 			 * alunosRecupercao = new ArrayList<Aluno>(); List<Aluno> alunosReprovados = new
@@ -31,12 +56,13 @@ public class PrimeiraClasseJava {
 			 */
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-			for (int qtd = 1; qtd <= 5; qtd++) {
+			for (int qtd = 1; qtd <= 1; qtd++) {
 
 				String nome = JOptionPane.showInputDialog("Qual nome do Aluno ?");
+				String idade = JOptionPane.showInputDialog("Qual a Idade ?"); 
+				
 				/*
-				 * String idade = JOptionPane.showInputDialog("Qual a Idade ?"); String
-				 * dtnascimneto = JOptionPane.showInputDialog("Data Nascimento ?"); String rg =
+				String dtnascimneto = JOptionPane.showInputDialog("Data Nascimento ?"); String rg =
 				 * JOptionPane.showInputDialog("RG ?"); String cpf =
 				 * JOptionPane.showInputDialog("CPF ?"); String mae =
 				 * JOptionPane.showInputDialog("Mae ?"); String pai =
@@ -58,9 +84,9 @@ public class PrimeiraClasseJava {
 
 				Aluno aluno1 = new Aluno(); // Instanciou/criou o Objeto Aluno
 				aluno1.setNome(nome);
-				/*
-				 * aluno1.setIdade(Integer.valueOf(idade));
-				 * aluno1.setDataNascimento(dtnascimneto); aluno1.setRegistroGeral(rg);
+				aluno1.setIdade(Integer.valueOf(idade));
+				 
+				 /* aluno1.setDataNascimento(dtnascimneto); aluno1.setRegistroGeral(rg);
 				 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai);
 				 * aluno1.setDataMatricula(dtMatricula); aluno1.setNomeEscola(escola);
 				 * aluno1.setSerieMatriculado(serie);
@@ -144,7 +170,49 @@ public class PrimeiraClasseJava {
 						+ aluno.getAprovado2());
 			}
 
+		} else {
+			
+			JOptionPane.showMessageDialog(null, "Acesso não Permitido");
 		}
+		
+		} catch (NumberFormatException e) {
+			
+			StringBuilder saida = new StringBuilder();
+			
+			e.printStackTrace();
+			
+			
+			for (int i = 0; i < e.getStackTrace().length; i++) {
+				
+				saida.append("\n Classe de erro: " + e.getStackTrace()[i].getClassName());
+				saida.append("\n Metodo de erro: " + e.getStackTrace()[i].getMethodName());
+				saida.append("\n Linha de erro: " + e.getStackTrace()[i].getLineNumber());
+			}
+			
+			JOptionPane.showInternalMessageDialog(null, "Erro de Conversao Numero"
+					+ saida.toString());
+			
+		} catch (NullPointerException e) {
+			
+			JOptionPane.showInternalMessageDialog(null, "Opa deu ruim Null Pointer Exeption"
+					+ e.getMessage());
+		} catch (ExcecaoProcessarNota e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro da Exceção Customizada " + e.getMessage().getClass());
+		
+		}finally {
+			JOptionPane.showMessageDialog(null, "Estamos Aprendendo Java");
+		}
+	}
+	
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		try {
+			File fil = new File("c://lines.txt");
+			Scanner scanner = new Scanner(fil);
+		} catch (FileNotFoundException e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
+		} 
+		
 	}
 }
 
