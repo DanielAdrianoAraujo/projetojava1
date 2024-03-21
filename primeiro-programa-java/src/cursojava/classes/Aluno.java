@@ -6,15 +6,8 @@ import java.util.Objects;
 
 import cursojava.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
@@ -116,7 +109,7 @@ public class Aluno {
 		double somaNotas = 0.0;
 
 		for (Disciplina disciplina : disciplinas) {
-			somaNotas += disciplina.getNota();
+			somaNotas += disciplina.getMediaNota();
 		}
 
 		return somaNotas / disciplinas.size();
@@ -171,4 +164,21 @@ public class Aluno {
 		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
 	}
 
+	@Override
+	public boolean pessoaMaiorIdade() {
+		//return super.pessoaMaiorIdade();
+		return idade >=  21;
+	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? 
+		"Maior Idade" : "Menor";		
+	}
+
+	@Override
+	public double salario() {
+		return 0;
+	}
+	
+		
 }

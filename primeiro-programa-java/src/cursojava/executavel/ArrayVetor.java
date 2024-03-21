@@ -38,33 +38,59 @@ public class ArrayVetor {
 		disciplina4.setNota(notas4);
 		aluno.getDisciplinas().add(disciplina4);
 
-		System.out.println("Nome Aluno: " + aluno.getNome() + " => Matriculado: " + aluno.getNomeEscola());
-		System.out.println("------------------- Disciplina do Aluno -------------------");
-
-		for (Disciplina disc : aluno.getDisciplinas()) {
-			System.out.println("Disciplina: " + disc.getDisciplina());
-			System.out.println("As Notas da Disciplina " + disc.getDisciplina() + " Sao: ");
-
-			double valorMax = 0.0;
-			for (int pos = 0; pos < disc.getNota().length; pos++) {
-				System.out.println("Nota: " + (pos + 1) + " = " + disc.getNota()[pos]);
-
-				if (pos == 0) {
-					valorMax = disc.getNota()[pos];
-				} else {
-					if (disc.getNota()[pos] > valorMax) {
-						valorMax = disc.getNota()[pos];
-					}
+		Aluno[] arrayAluno = new Aluno[1];
+		
+		arrayAluno[0] = aluno;
+		
+		for (int pos = 0; pos < arrayAluno.length; pos ++) {
+			System.out.println("Nome Aluno: " + arrayAluno[pos].getNome());
+			
+			for (Disciplina disc : arrayAluno[pos].getDisciplinas()) {
+				System.out.println("Disciplina: " + disc.getDisciplina());
+				
+				for (int posn = 0; posn < disc.getNota().length; posn++) {
+					System.out.println("Nota " + (posn +1) + " eh igual " 
+				+ disc.getNota()[posn]);
 				}
+				System.out.println();
 			}
-			System.out.println("A Maior Nota eh: " + valorMax);
-			System.out.println();
 		}
-
+	
 	}
 }
 
 // 21/03/2024
+
+/*
+
+System.out.println("Nome Aluno: " + aluno.getNome() + " => Matriculado: " + aluno.getNomeEscola());
+System.out.println("------------------- Disciplina do Aluno -------------------");
+
+for (Disciplina disc : aluno.getDisciplinas()) {
+	System.out.println("Disciplina: " + disc.getDisciplina());
+	System.out.println("As Notas da Disciplina " + disc.getDisciplina() + " Sao: ");
+
+//	double valorMax = 0.0;
+	double valorMin = 0.0;
+	for (int pos = 0; pos < disc.getNota().length; pos++) {
+		System.out.println("Nota: " + (pos + 1) + " = " + disc.getNota()[pos]);
+
+		if (pos == 0) {
+			valorMin = disc.getNota()[pos];
+		} else {
+			if (disc.getNota()[pos] < valorMin) {
+				valorMin = disc.getNota()[pos];
+			}
+		}
+	}
+	System.out.println("A Menor Nota eh: " + valorMin);
+	System.out.println();
+}
+
+*/
+
+
+
 
 /*
  * String posicoes = JOptionPane.showInputDialog("Tamanho do Array ?");
