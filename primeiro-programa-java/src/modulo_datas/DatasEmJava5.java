@@ -1,12 +1,31 @@
 package modulo_datas;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DatasEmJava5 {
 
-	public static void main(String[] args) {
-		 
+	public static void main(String[] args) throws InterruptedException {
+		
+		Instant inicio = Instant.now();
+		
+		Thread.sleep(2000); // Verificar um processo com tempo que não conhecemos
+		
+		Instant ifinal = Instant.now();
+		
+		Duration duracao = Duration.between(inicio, ifinal);
+		
+		System.out.println("Duracao Segundos: " + duracao.getSeconds());
+		
+		System.out.println("Duracao Nano: " + duracao.getNano());
+		
+		System.out.println("Duracao Milli: " + duracao.toMillis());
+		
+		// ************************************************************************
+
+				/*
 		LocalDate localDate = LocalDate.now();
 		
 		System.out.println("Data Atual: " + 
@@ -26,6 +45,9 @@ public class DatasEmJava5 {
 		
 		System.out.println("Ano: " +
 		localDate.getYear()); 
+		
+		*/
+		
 	}
 		
 		
