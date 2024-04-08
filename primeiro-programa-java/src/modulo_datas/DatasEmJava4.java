@@ -23,10 +23,6 @@ public class DatasEmJava4 {
 		System.out.println("Data e Hora Atual / TimeStemp: " + 
 		dataHoraAtual.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
 		
-		
-		
-		
-
 	}
 
 }
