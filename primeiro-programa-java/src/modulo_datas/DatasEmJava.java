@@ -15,7 +15,7 @@ public class DatasEmJava {
 
 		Date dataHoje = simpleDateFormat.parse("10/04/2024");
 
-						// Maiors
+						// Maior
 		if (dataVencimento.after(dataHoje)) { // Depois DataVencimento Maior que Hoje
 			System.out.println("Boleto a Vencer");
 		} else {
