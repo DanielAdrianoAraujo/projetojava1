@@ -15,7 +15,8 @@ public class DataEmJava3 {
 		calendar.setTime(dataInicial);
 
 		for (int parcela = 1; parcela <= 12; parcela++) {
-			calendar.add(Calendar.MONTH, +1);
+			calendar.add(Calendar.MONTH, +1); 
+			calendar.add(Calendar.DAY_OF_MONTH, +1);
 			System.out.println("Parcela: " + parcela + " Vence em: "
 					+ new SimpleDateFormat("dd/MM/yyyy").format(calendar.getTime()));
 		}
