@@ -51,8 +51,8 @@ public class Arquivos {
 		
 		
 		for (PessoaAquivo p : pessoas) {
-			escreve_no_arquivo.write("Nome: " + p.getNome() + ";" +
-			"Email: " + p.getEmail() + ";" + "Idade: " + p.getIdade() + "\n");
+			escreve_no_arquivo.write(p.getNome() + ";" +
+			p.getEmail() + ";" + p.getIdade() + "\n");
 		}
 		
 		
