@@ -17,10 +17,6 @@ public class DatasEmJava7 {
 			" do mes " + mes);
 		}
 		
-		
-		
-		
-		
 		System.out.println("Mais 5 dias: " + (database = database.plusDays(5)));
 		
 		System.out.println("Mais 5 semanas: " + (database = database.plusWeeks(5)));
