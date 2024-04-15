@@ -50,6 +50,11 @@ public class PessoaAquivo {
 		PessoaAquivo other = (PessoaAquivo) obj;
 		return Objects.equals(email, other.email) && idade == other.idade && Objects.equals(nome, other.nome);
 	}
+
+	@Override
+	public String toString() {
+		return "PessoaAquivo [nome=" + nome + ", email=" + email + ", idade=" + idade + "]";
+	}
 	
 	
 	

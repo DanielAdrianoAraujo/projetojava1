@@ -56,7 +56,7 @@ public class Arquivos {
 		}
 		
 		
-		escreve_no_arquivo.flush();
+		escreve_no_arquivo.flush(); // operação que força a saída de dados de um buffer para o seu destino final
 		escreve_no_arquivo.close();
 		
 		
