@@ -13,7 +13,7 @@ public class LerArquivoTxt {
 	public static void main(String[] args) throws FileNotFoundException {
 
 		FileInputStream entradaArquivo = new FileInputStream(new File(
-				"C:\\Users\\adria\\git\\repository\\primeiro-programa-java\\src\\cursojava\\classes\\arquivo.txt"));
+				"C:\\Users\\adria\\git\\repository\\primeiro-programa-java\\src\\cursojava\\classes\\arquivo.csv"));
 
 		Scanner lerArquivo = new Scanner(entradaArquivo, "UTF-8");
 

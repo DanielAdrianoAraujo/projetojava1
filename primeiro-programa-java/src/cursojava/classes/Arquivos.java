@@ -33,7 +33,7 @@ public class Arquivos {
 		
 		
 		
-		File arquivo = new File("C:\\Users\\adria\\git\\repository\\primeiro-programa-java\\src\\cursojava\\classes\\arquivo.txt");
+		File arquivo = new File("C:\\Users\\adria\\git\\repository\\primeiro-programa-java\\src\\cursojava\\classes\\arquivo.csv");
 		
 		if (!arquivo.exists()){
 			arquivo.createNewFile();
