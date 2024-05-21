@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import cursojava.constantes.StatusAluno;
-
+ 
 public class Aluno extends Pessoa {
 
 	private String dataMatricula;
