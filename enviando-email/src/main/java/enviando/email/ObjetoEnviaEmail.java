@@ -15,7 +15,7 @@ public class ObjetoEnviaEmail {
 	
 	private String userName = "testejavamaven@gmail.com";
 	private String senha = "yoif urgv rwzl hitr";
-	
+	 
 	private String listaDestinatario = "";
 	private String nomeRemetente = "";
 	private String assuntoEmail = "";
