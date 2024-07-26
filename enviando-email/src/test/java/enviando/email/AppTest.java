@@ -9,15 +9,22 @@ public class AppTest
     public void testeEmail() throws Exception{
 		
 		
+		StringBuilder stringBuilderTextoEmail = new StringBuilder();
+		
+		stringBuilderTextoEmail.append("E ai, <br/><br/>" );
+		stringBuilderTextoEmail.append("<h2>Email do teste Java<h2/><br/><br/>");
+		stringBuilderTextoEmail.append("Clique no Botão<br/>");
+		
+		stringBuilderTextoEmail.append("<a target=\"_blank\" href=\"https://www.uol.com.br/\" style= \"color:#2525a7; padding: 14px 25px; text-align:center; text-decaration: none; display:inline-block; border-radius:30px; font-size:20px; font-family:courier; border : 3px solid green; background-color:#99DA39;\">Acessar UoL</a>");
+		
 		ObjetoEnviaEmail enviaEmail = 
 				new ObjetoEnviaEmail("danfreeflyer@yahoo.com.br", 
 				                     "Daniel Araujo", 
-				                     "Novo Trabalho com Java", 
-				                     "Criando email no Java com parametros");
+				                     "Java dia 26/07", 
+				                     stringBuilderTextoEmail.toString());
 		
-		enviaEmail.enviarEmail();
-	
-		
+		enviaEmail.enviarEmail(true);
+				   		
 		Thread.sleep(10000);
     	
     }
