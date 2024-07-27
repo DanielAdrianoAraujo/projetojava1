@@ -130,11 +130,11 @@ public class ObjetoEnviaEmail {
 		
 		
 		List<FileInputStream> arquivos = new ArrayList<FileInputStream>();
-		arquivos.add(simuladorDePdf());
-		arquivos.add(simuladorDePdf());
-		arquivos.add(simuladorDePdf());
-		arquivos.add(simuladorDePdf());
-		arquivos.add(simuladorDePdf());
+		arquivos.add(simuladorDePdf()); // Certificado
+		arquivos.add(simuladorDePdf()); // Nota Fiscal
+		arquivos.add(simuladorDePdf()); // Documento texto
+		arquivos.add(simuladorDePdf()); // Imagem
+		arquivos.add(simuladorDePdf()); // DARF
 		
 		
 		Multipart multipart = new MimeMultipart();
