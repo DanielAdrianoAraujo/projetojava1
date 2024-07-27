@@ -21,10 +21,10 @@ public class AppTest
 		ObjetoEnviaEmail enviaEmail = 
 				new ObjetoEnviaEmail("danfreeflyer@yahoo.com.br", 
 				                     "Daniel Araujo", 
-				                     "Java dia 26/07", 
+				                     "Java dia 27/07", 
 				                     stringBuilderTextoEmail.toString());
 		
-		enviaEmail.enviarEmail(true);
+		enviaEmail.enviarEmailAnexo(true);
 				   		
 		Thread.sleep(10000);
     	
