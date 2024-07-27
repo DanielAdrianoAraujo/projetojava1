@@ -8,9 +8,10 @@ public class AppTest
 	@org.junit.Test
     public void testeEmail() throws Exception{
 		
-		
+		// StringBuilder é uma classe usada para criar e manipular sequências de caracteres de forma eficiente e dinâmica
 		StringBuilder stringBuilderTextoEmail = new StringBuilder();
 		
+		//---------------------Append é um método usado para acrescentar
 		stringBuilderTextoEmail.append("E ai, <br/><br/>" );
 		stringBuilderTextoEmail.append("<h2>Email do teste Java<h2/><br/><br/>");
 		stringBuilderTextoEmail.append("Clique no Botão<br/>");

@@ -22,18 +22,19 @@ public class ObjetoEnviaEmail {
 	private String textoEmail = ""; 
 	  
 	 
+	// Construtor que vai receber os parametros e vai link com os campos definidos acima
 	public ObjetoEnviaEmail(String listaDestinatario, String nomeRemetente, 
 			String assuntoEmali, String textoEmail) {
 		this.listaDestinatario = listaDestinatario;
 		this.nomeRemetente = nomeRemetente;
 		this.assuntoEmail = assuntoEmali;
-		this.textoEmail = textoEmail;
-		
+		this.textoEmail = textoEmail;		
 		}	
 	 
 		
 	public void enviarEmail(boolean envioHtml) throws Exception{
 	
+		//  Properties Classe utilizada para gerenciar arquivos de configuração que trabalham com pares de chave e valor
 		Properties properties = new Properties(); 
 		
 		properties.put("mail.smtp.ssl.trust", "*"); // Autentica com o SSL
@@ -44,6 +45,7 @@ public class ObjetoEnviaEmail {
 		properties.put("mail.smtp.socketFactory", "465"); // Porta a se conectar pelo socket
 		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe socket de conexão SMTP
 		
+		// Session é um objeto utilizado para armazenar informações sobre o usuário durante a navegação em um site
 		Session session = Session.getInstance(properties, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
