@@ -20,10 +20,15 @@ public class FazerFolhaTipoF {
 		mpEmpregado.setNome("Adriano");
 		mpEmpregado.setCargo("Diretor");
 		mpEmpregado.setTaxaHora(1000.00);
-		mpEmpregado.preencherCheque(mpEmpregado.calcValorPagamentomp(78));
+		mpEmpregado.preencherCheque(mpEmpregado.calcValorPagamento(39));
 		
+		System.out.println();
+		
+		MeioPeriodoHoraExtraEmDobro mpdEmpregado 
+			= new MeioPeriodoHoraExtraEmDobro();
+		mpdEmpregado.setNome("Araujo");
+		mpdEmpregado.setCargo("Superintendente");
+		mpdEmpregado.setTaxaHora(1000.00);
+		mpdEmpregado.preencherCheque(mpdEmpregado.calcValorPagamento(41));
 	}
-
-	
-
 }

@@ -12,7 +12,7 @@ public class EmpregadoMeioPeriodo extends Empregado {
 		this.taxaHora = taxaHora;
 	}
 	
-	public double calcValorPagamentomp (double horas) {
+	public double calcValorPagamento (int horas) {
 		return taxaHora * horas;
 	}
 	
