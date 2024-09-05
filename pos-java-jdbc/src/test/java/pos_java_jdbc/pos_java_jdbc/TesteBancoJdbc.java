@@ -8,36 +8,35 @@ import dao.UserPosDAO;
 import model.Userposjava;
 
 public class TesteBancoJdbc {
-	
-	
+
 	@Test
-	public void initBancoJdbc(){
-		
+	public void initBancoJdbc() {
+
 		UserPosDAO userPosDAO = new UserPosDAO();
 		Userposjava userPosJava = new Userposjava();
-		
-		userPosJava.setId(6L);
+
+		// userPosJava.setId(6L);
 		userPosJava.setNome("DanBen");
 		userPosJava.setEmail("danfreeflyer@yahoo.com.br");
-		
+
 		userPosDAO.salvar(userPosJava);
 	}
-	
+
 	@Test
 	public void initLista() {
 		UserPosDAO dao = new UserPosDAO();
 		try {
 			List<Userposjava> list = dao.lista();
-			
+
 			for (Userposjava userposjava : list) {
 				System.out.println(userposjava);
 				System.out.println("------------------------------");
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Test
@@ -45,16 +44,15 @@ public class TesteBancoJdbc {
 		UserPosDAO dao = new UserPosDAO();
 		try {
 			Userposjava userPosJava = dao.buscar(1L);
-			
-				System.out.println(userPosJava);
-			
+
+			System.out.println(userPosJava);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	@Test
 	public void initAtualizar() {
 		UserPosDAO dao = new UserPosDAO();
@@ -63,17 +61,24 @@ public class TesteBancoJdbc {
 			objetoBanco.setNome("Ben Araujo dos Santos");
 			objetoBanco.setEmail("ben@yahoo.com.br");
 			dao.atualizar(objetoBanco);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	@Test
+	public void initDeletar() {
+		try {
+
+			UserPosDAO dao = new UserPosDAO();
+			dao.deletar(6L);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }
