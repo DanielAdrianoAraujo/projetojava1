@@ -1,5 +1,7 @@
 package pos_java_jdbc.pos_java_jdbc;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import dao.UserPosDAO;
@@ -10,19 +12,31 @@ public class TesteBancoJdbc {
 	
 	@Test
 	public void initBancoJdbc(){
-		//SingleConnection.getConnection();
 		
 		UserPosDAO userPosDAO = new UserPosDAO();
 		Userposjava userPosJava = new Userposjava();
 		
-		userPosJava.setId(4L);
-		userPosJava.setNome("Ben");
+		userPosJava.setId(6L);
+		userPosJava.setNome("DanBen");
 		userPosJava.setEmail("danfreeflyer@yahoo.com.br");
 		
-		
 		userPosDAO.salvar(userPosJava);
-		
-		
+	}
+	
+	@Test
+	public void initLista() {
+		UserPosDAO dao = new UserPosDAO();
+		try {
+			List<Userposjava> list = dao.lista();
+			
+			for (Userposjava userposjava : list) {
+				System.out.println(userposjava);
+				System.out.println("------------------------------");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 

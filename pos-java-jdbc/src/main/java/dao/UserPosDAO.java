@@ -2,6 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import conexaojdbc.SingleConnection;
 import model.Userposjava;
@@ -35,6 +38,27 @@ public class UserPosDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	
+	public List<Userposjava> lista() throws Exception{
+		List<Userposjava> list = new ArrayList<Userposjava>();
+		
+		String sql = "Select * from userposjava";
+		PreparedStatement statement = connection.prepareStatement(sql);		
+		ResultSet resultado = statement.executeQuery();
+		
+		while (resultado.next()) {
+			Userposjava userposjava = new Userposjava();
+			userposjava.setId(resultado.getLong("id"));
+			userposjava.setNome(resultado.getString("nome"));
+			userposjava.setEmail(resultado.getString("email"));
+			
+			list.add(userposjava);
+			
+		}
+		
+		return list;
 	}
 	
 }
