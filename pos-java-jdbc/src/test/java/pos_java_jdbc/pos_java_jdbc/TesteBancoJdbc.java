@@ -55,4 +55,25 @@ public class TesteBancoJdbc {
 	}
 	
 	
+	@Test
+	public void initAtualizar() {
+		UserPosDAO dao = new UserPosDAO();
+		try {
+			Userposjava objetoBanco = dao.buscar(5L);
+			objetoBanco.setNome("Ben Araujo dos Santos");
+			objetoBanco.setEmail("ben@yahoo.com.br");
+			dao.atualizar(objetoBanco);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
