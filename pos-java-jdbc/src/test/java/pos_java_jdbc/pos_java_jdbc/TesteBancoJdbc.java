@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import dao.UserPosDAO;
+import model.Telefone;
 import model.Userposjava;
 
 public class TesteBancoJdbc {
@@ -78,7 +79,22 @@ public class TesteBancoJdbc {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	@Test
+	public void testeInserirTelefone() {
+		try {
+			Telefone telefone = new Telefone();
+			telefone.setNumero("22222222");
+			telefone.setTipo("Residencial");
+			telefone.setUsuario(2L);
+			
+			UserPosDAO dao = new UserPosDAO();
+			dao.salvarTelefone(telefone);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

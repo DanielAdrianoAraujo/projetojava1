@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexaojdbc.SingleConnection;
+import model.Telefone;
 import model.Userposjava;
 
 public class UserPosDAO {
@@ -35,9 +36,30 @@ public class UserPosDAO {
 			}
 			e.printStackTrace();
 		}
-
 	}
 
+	public void salvarTelefone (Telefone telefone) {
+		try {
+			String sql = "INSERT INTO public.telefoneuser(numero, tipo, usuariopessoa) VALUES (?, ?, ?);";
+			PreparedStatement insertTelefone = connection.prepareStatement(sql);
+			insertTelefone.setString(1, telefone.getNumero());
+			insertTelefone.setString(2, telefone.getTipo());
+			insertTelefone.setLong(3, telefone.getUsuario());
+			insertTelefone.execute();
+			connection.commit();
+
+		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	public List<Userposjava> lista() throws Exception {
 		List<Userposjava> list = new ArrayList<Userposjava>();
 
