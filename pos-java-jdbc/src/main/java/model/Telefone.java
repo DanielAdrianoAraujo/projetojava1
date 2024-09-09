@@ -8,9 +8,6 @@ public class Telefone {
 	private String tipo;
 	private Long usuario;
 	
-	
-	
-	
 	public Long getId() {
 		return id;
 	}
