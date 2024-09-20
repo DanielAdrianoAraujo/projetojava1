@@ -30,7 +30,7 @@
 	
 	.msg{
 	position: absolute;
-	top: 70%;
+	top: 10%;
 	left: 33%;
 	font-size: 20px;
 	color: red;
@@ -48,7 +48,7 @@
 	<form action="ServletLogin" method="post" class="row g-3 needs-validation"  novalidate>
 	<input type="hidden" value="<%= request.getParameter("url")%>" name="url">
 
-<div class="col-md-6">
+<div class="mb-3">
 	<label class="form-label"> Login </label>
 	<input class="form-control" name="login" type="text" required="required">
 	<div class="invalid-feedback">
@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<div class="col-md-6">
+<div class="mb-3">
 	<label class="form-label"> Senha </label>
 	<input class="form-control" name="senha" type="password" required="required">
 	<div class="invalid-feedback">
