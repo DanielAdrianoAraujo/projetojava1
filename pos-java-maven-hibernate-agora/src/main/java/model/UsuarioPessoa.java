@@ -18,16 +18,17 @@ public class UsuarioPessoa {
 	private String email;
 	private String login;
 	private String senha;
-	private int Idade;
+	private int idade;
 	
-	public void setIdade(int Idade) {
-		this.Idade = Idade;
-	}
+	
+
 	
 	public int getIdade() {
-		return Idade;
+		return idade;
 	}
-
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 	public Long getId() {
 		return Id;
 	}
