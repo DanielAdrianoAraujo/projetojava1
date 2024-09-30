@@ -18,17 +18,7 @@ public class ProcessaPedido {
 
 	public static void main(String[] args) throws ParseException {
 
-		//Product product = new Product();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		
-		
-		/*Order orderStatus = new Order();
-		SimpleDateFormat datanasc = new SimpleDateFormat("dd/MM/yyyy");
-		List<Product> product = new ArrayList<>();
-		OrderItem orderItem =  new OrderItem(); */
-		
-		
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
@@ -71,8 +61,6 @@ public class ProcessaPedido {
 		System.out.println(order);
 		
 		sc.close();
-		
-		
 		
 	}
 	
