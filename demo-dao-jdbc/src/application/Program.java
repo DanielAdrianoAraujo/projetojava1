@@ -50,7 +50,7 @@ public class Program {
 		System.out.println("Update Realizado ");
 		
 		System.out.println("");
-		System.out.println("===== Teste 8 Update =======");
+		System.out.println("===== Teste 8 Delete =======");
 		sellerDao.deleteById(8);
 		System.out.println("Delete Realizado ");
 		
