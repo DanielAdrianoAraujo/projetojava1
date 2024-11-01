@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ProativaDigital.ProjetoTesteSpring.entities.User;
 import com.ProativaDigital.ProjetoTesteSpring.repositories.UserRepository;
+import com.ProativaDigital.ProjetoTesteSpring.services.exceptions.ResourceNotFoundException;
 
 import jakarta.transaction.Transactional;
 
@@ -24,7 +25,8 @@ public class UserService {
 	
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.get();
+		// ele tenta dar um GET, senão consegue lança essa excessão escrita em lambida
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id)); 
 	}
 	
 	public User insert(User obj) {
