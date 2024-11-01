@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.ProativaDigital.ProjetoTesteSpring.entities.User;
 import com.ProativaDigital.ProjetoTesteSpring.repositories.UserRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class UserService {
 
@@ -32,5 +34,19 @@ public class UserService {
 	
 	public void delete(Long id) {
 		repository.deleteById(id);
+	}
+	
+	@Transactional // garante que a sessão esteja ativa até o fim do método
+	public User update(Long id, User obj) {
+		User entity = repository.getReferenceById(id); // prepara o obj monitorado pelo JPA
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());
 	}
 }
