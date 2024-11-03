@@ -13,6 +13,7 @@ import com.ProativaDigital.ProjetoTesteSpring.repositories.UserRepository;
 import com.ProativaDigital.ProjetoTesteSpring.services.exceptions.DatabaseException;
 import com.ProativaDigital.ProjetoTesteSpring.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -48,9 +49,13 @@ public class UserService {
 	
 	@Transactional // garante que a sessão esteja ativa até o fim do método
 	public User update(Long id, User obj) {
+		try {
 		User entity = repository.getReferenceById(id); // prepara o obj monitorado pelo JPA
 		updateData(entity, obj);
 		return repository.save(entity);
+		} catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	
