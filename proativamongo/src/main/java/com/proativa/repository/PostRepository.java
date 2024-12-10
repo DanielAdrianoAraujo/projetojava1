@@ -9,4 +9,5 @@ import com.proativa.domain.Post;
 public interface PostRepository extends MongoRepository<Post, String>{
 	
 	
+	
 }
